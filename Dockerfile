@@ -33,8 +33,11 @@ RUN mkdir -p /usr/src/strongswan \
 		--enable-eap-dynamic \
 		--enable-xauth-eap \
 		--enable-openssl \
-	&& make -j \
+        && echo "%%%% COMPILE %%%%" \
+	&& make \
+        && echo "%%%% INSTALL %%%%" \
 	&& make install \
+        && echo "%%%% CLEAN %%%%" \
 	&& rm -rf "/usr/src/strongswan*"
 
 # Strongswan Configuration
